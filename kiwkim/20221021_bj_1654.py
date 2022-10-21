@@ -11,13 +11,14 @@ for i in range(K):
 start = 1
 end = max(ropes)
 
-while start < end:
+while start <= end:
     mid = (start + end) // 2
     curnum = 0
     for rope in ropes:
         curnum += rope//mid
     if curnum < N:
         end = mid - 1
-    elif curnum >= N:
+    else:
         start = mid + 1
-print(mid - 1)
+        result = mid
+print(result)
