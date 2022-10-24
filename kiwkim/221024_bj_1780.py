@@ -7,11 +7,10 @@ mat = []
 for _ in range(size):
     mat.append(list(map(int, readl().split())))
 ret = [0] * 3
+
 def cut(mat, r, c, size):
     plag = mat[r][c]
     plag2 = 1
-    row = 0
-    col = 0
     for i in range(r, r + size//3):
         for j in range(c, c + size//3):
             if mat[i][j] != plag:
@@ -27,7 +26,6 @@ def cut(mat, r, c, size):
             for y in range(3):
                 for x in range(3):
                     cut(mat, r + y*size//3, c + x*size//3, size)
-for k in range(3):
-    for t in range(3):
-        cut(mat, k*size//3, t*size//3, size)
-print(*ret,sep="\n")
+
+cut(mat, 0, 0, size*3)
+print(*ret, sep="\n")
