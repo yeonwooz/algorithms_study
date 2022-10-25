@@ -1,11 +1,12 @@
 #started at 10:31
 n = int(input())
 
-wordset = set()
+# wordset = set()
+words = []
 for _ in range(n):
-    wordset.add(input().rstrip())
+    words.append(input().rstrip())
 
-words = list(wordset)
+# words = list(wordset)
 words.sort(key=len)
 
 def is_prefix(stra,strb):
@@ -16,13 +17,20 @@ def is_prefix(stra,strb):
             break
         cnt +=1
     return cnt == len(stra)
-
+answer = 0
 # removeset = set()
 for i in range(len(words)):
+    flag = False
     for j in range(i+1, len(words)):
         if is_prefix(words[i], words[j]):
-            removeset.add(j)
+            flag = True
+            break
 # 끝에서부터 탐색해서 지워야할듯
-for idx in removeset:
-    print(idx)
-    if words[]
+# for idx in removeset:
+#     print(idx)
+#     if words[]
+    if not flag:
+        answer += 1
+print(answer)
+
+# 정답코드 참고하여 수정 
