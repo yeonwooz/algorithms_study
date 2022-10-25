@@ -29,7 +29,7 @@ def paperSlice(y, x, n):
     if flag == 0: # 모든 color가 같으면 color 추가하고 종료
         color_list[color+1] += 1
         return
-    else: # 
+    else: # 재귀 9번 돌리기
         paperSlice(y, x, l)
         paperSlice(y, x+l, l)
         paperSlice(y, x+2*l, l)
