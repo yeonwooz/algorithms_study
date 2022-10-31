@@ -1,15 +1,15 @@
-from collections import defaultdict
-
 def solution(id_list, report,k):
     answer = []
-    report = list(set(report))  # 중복 신고 제거
-    reporters = defaultdict(set) # 이메일 보낼 대상들 (초기값 => [])
-    reported_cnts = defaultdict(int) # 신고당한 횟수 (초기값  => 0)
-	
+    report = set(report) # 중복 신고 제거
+    # reporters = defaultdict(set) # 이메일 보낼 대상들 (초기값 => [])
+    # reported_cnts = defaultdict(int) # 신고당한 횟수 (초기값  => 0)
+    reporters = {id: [] for id in id_list}
+    reported_cnts = dict.fromkeys(id_list, 0)
+    
     for r in report:
         cur_user, reported = r.split()
         # 신고자가 신고한 id 추가
-        reporters[cur_user].add(reported)
+        reporters[cur_user].append(reported)
         # 신고당한 id의 신고 횟수 추가
         reported_cnts[reported] += 1
     
