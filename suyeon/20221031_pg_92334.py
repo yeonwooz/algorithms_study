@@ -1,3 +1,4 @@
+# coauthored with Rigyeong 
 def solution(id_list, report,k):
     answer = []
     report = set(report) # 중복 신고 제거
