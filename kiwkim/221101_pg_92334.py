@@ -1,9 +1,9 @@
 
 
 def solution(id_list, report, k):
-    from collections import defaultdict;
+    from collections import defaultdict
     dic = defaultdict(set)
-    answer = [] 
+    answer = []
     user_idx = defaultdict()
     for i in range(len(id_list)):
         answer.append(0)
