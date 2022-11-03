@@ -1,12 +1,13 @@
+# 백준 문자열 1120번
 import sys
 input = sys.stdin.readline
 
 a, b = input().split()
 
 cnt = 0
-if (len(a) == len(b)):      # 길이가 같은 경우
+if len(a) == len(b):      # 길이가 같은 경우
     for i in range(len(b)): # 다른 문자의 개수 출력
-        if(a[i] != b[i]):
+        if a[i] != b[i]:
             cnt += 1
     print(cnt)
 else:                       # 길이가 다른 경우
@@ -19,5 +20,3 @@ else:                       # 길이가 다른 경우
         if cnt_min > cnt:               # 다른 문자의 개수의 min값 업데이트
             cnt_min = cnt
     print(cnt_min)
-
-        
