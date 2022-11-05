@@ -13,5 +13,3 @@ for _ in range(10000):
         end = mid
 
 print("%.15f" %(end))
-
-# https://sophuu.tistory.com/50
