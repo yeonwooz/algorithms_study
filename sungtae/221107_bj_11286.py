@@ -1,4 +1,4 @@
-# 백준 11286
+# 1백준 11286
 # 절댓값 힙
 import sys
 import heapq
