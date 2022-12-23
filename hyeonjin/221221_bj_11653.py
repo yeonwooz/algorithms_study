@@ -1,37 +1,32 @@
-import sys
-import math
-
-input = sys.stdin.readline
-n = int(input())
+from collections import deque
 
 
-def is_prime(n):
-    root = int(math.sqrt(n))
-    i = 2
+def solution(queue1, queue2):
+    q1 = deque(queue1)
+    q2 = deque(queue2)
 
-    while i <= root:
-        if n % i == 0:
-            return False
+    sum_1 = sum(q1)
+    sum_2 = sum(q2)
 
-        i += 1
+    cnt = 0
+    while cnt <= len(queue1 + queue2) * 2:
+        if sum_1 == sum_2:
+            return cnt
 
-    return True
+        cnt += 1
 
+        if sum_1 > sum_2:
+            pop = q1.popleft()
+            q2.append(pop)
 
-def solution(n):
-    root = int(math.sqrt(n))
-    i = 2
+            sum_1 -= pop
+            sum_2 += pop
 
-    while (n > 1) and (i <= root):
-        if is_prime(i):
-            while n % i == 0:
-                print(i)
-                n //= i
+        elif sum_1 < sum_2:
+            pop = q2.popleft()
+            q1.append(pop)
 
-        i += 1
+            sum_1 += pop
+            sum_2 -= pop
 
-    if n > 1:
-        print(n)
-
-
-solution(n)
+    return -1
