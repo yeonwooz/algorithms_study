@@ -7,22 +7,24 @@ readl = sys.stdin.readline
 
 
 def prime(prime: int):
+    root = int(sqrt(prime))
     div = 2
-    while div < sqrt(prime):
+    while div <= root:
         if prime % div == 0:
             return False
         div += 1
-    return True    
+    return True 
+   
 def soinsu(number: int):
-    tmp = number
-    div = 1
-    while div < sqrt(number) :
+    tmp = int(sqrt(number))
+    div = 2
+    while div <= tmp and (number > 1):
+        if prime(div):
+            while number % div == 0:
+                print(div)
+                number //= div
         div += 1
-        if prime(div) and tmp % div == 0:
-            print(div)
-            tmp /= div
-            div = 1
-    if tmp > 1:
+    if number > 1:
         print(int(tmp))
         
 if __name__ == "__main__":
