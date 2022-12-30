@@ -11,6 +11,7 @@ dx = [-1,0,1,0]
 dy = [0,1,0,-1]
 
 cnt = 1
+graph[r][c] = 2
 
 while 1:
     flag = 0
