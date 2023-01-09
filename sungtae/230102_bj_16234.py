@@ -1,4 +1,5 @@
 # 인구 이동
+# pypy로 돌아감
 import sys
 sys.setrecursionlimit(5000)
 n, l, r = map(int, input().split())
@@ -30,22 +31,22 @@ while(1):
     unite = []
     for i in range(n):
         for j in range(n):
-            for k in range(4):
-                ny = i + dy[k]
-                nx = j + dx[k]
-                if 0 <= ny < n and 0 <= nx < n:
-                    if (i, j) not in visited:
-                        if l <= abs(land[i][j] - land[ny][nx]) <= r:
-                            unite = []
-                            unite = dfs(i, j, visited, unite)
-                    
-                            sum = 0
-                            for elem in unite:
-                                sum += land[elem[0]][elem[1]]
-                            sum = sum // len(unite)
-                            for elem in unite:
-                                land[elem[0]][elem[1]] = sum    
-                            flag = 1 
+            # for k in range(4):
+            #     ny = i + dy[k]
+            #     nx = j + dx[k]
+            #     if 0 <= ny < n and 0 <= nx < n:
+            if (i, j) not in visited:
+                if l <= abs(land[i][j] - land[ny][nx]) <= r:
+                    unite = []
+                    unite = dfs(i, j, visited, unite)
+            
+                    sum = 0
+                    for elem in unite:
+                        sum += land[elem[0]][elem[1]]
+                    sum = sum // len(unite)
+                    for elem in unite:
+                        land[elem[0]][elem[1]] = sum    
+                    flag = 1 
     if (flag == 0):
         break
     cnt += 1
